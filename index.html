@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <!-- Preload assets -->
-  <link rel="preload" href="petals.gif" as="image">
+  <link rel="preload" href="snowfall.gif" as="image">
   <link rel="preload" href="rain.gif" as="image">
-  <link rel="preload" href="balloons.gif" as="image">
+  <link rel="preload" href="balloon.gif" as="image">
   <link rel="preload" href="cake.gif" as="image">
   <link rel="preload" href="confetti.gif" as="image">
   <link rel="preload" href="candles.gif" as="image">
-  <link rel="preload" href="flowers.png" as="image">
+  <link rel="preload" href="heart.gif" as="image">
 
   <style>
     body {
@@ -83,12 +83,16 @@
     }
 
     /* Animated quote typing effect */
-    .animated-quote {
-      display: inline-block;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 6s steps(40,end), blink .75s step-end infinite;
-      border-right: 3px solid #ff1493;
+    .animated-quote 
+    p {
+        font-size: 2.5em;
+        color: #4b0082;
+        font-style:italic;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 6s steps(40,end), blink .75s step-end infinite;
+        border-right: 3px solid #ff1493;
     }
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink { 50% { border-color: transparent } }
@@ -97,7 +101,7 @@
     .heartbeat {
       font-size: 4em;
       color: #ff1493;
-      animation: beat 1s infinite;
+      animation: beat 2s infinite;
     }
     @keyframes beat {
       0%, 100% { transform: scale(1); }
@@ -139,7 +143,7 @@
   <div class="slide intro active">
     <img src="rain.gif" class="effect">
     <h1>🎶 Welcome 🎶</h1>
-    <p class="animated-quote">Wishing you endless joy and love today!...Happy Birthday to the most amazing soul with selfless loving nature and care…</p>
+    <p class="animated-quote">Play the song and then continue...</p>
     <audio id="birthdaySong" src="song.mp3" controls></audio>
     <br>
     <button onclick="nextSlide()">Continue ➡️</button>
@@ -153,7 +157,8 @@
     <img src="snowfall.gif" class="effect">
     <h1>🎉 Happy Birthday 🎉</h1>
     <img src="1.jpg" alt="Birthday Person">
-    <p>Your existence is like a tree, due to which many branches of happiness exist…</p>
+    <p>Wishing you endless joy and love today!...</p>
+    <p>Birthday to the most amazing soul with selfless loving nature and care…</p>
   </div>
 
   <!-- Slide 2 -->
@@ -161,7 +166,7 @@
     <img src="balloon.gif" class="effect">
     <h1>🥳 Celebration Time 🥳</h1>
     <img src="2.jpg" alt="Celebration">
-    <p>May your day be filled with laughter!</p>
+    <p>Your existence is like a tree, due to which many branches of happiness exist…</p>
   </div>
 
   <!-- Slide 3 -->
@@ -190,7 +195,7 @@
 
   <!-- Ending Slide -->
   <div class="slide ending">
-    <img src="confetti.gif" class="effect">
+    <img src="heart.gif" class="effect">
     <div class="ending-text heartbeat">💖 Happy Birthday 💖</div>
   </div>
 
