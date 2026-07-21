@@ -83,16 +83,16 @@
     }
 
     /* Animated quote typing effect */
-    .animated-quote 
+    .animated-quote
     p {
-        font-size: 2.5em;
-        color: #4b0082;
-        font-style:italic;
-        display: inline-block;
-        overflow: hidden;
-        white-space: nowrap;
-        animation: typing 6s steps(40,end), blink .75s step-end infinite;
-        border-right: 3px solid #ff1493;
+      font-size: 2.5em;
+      color: #4b0082;
+      font-style:italic;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 6s steps(40,end), blink .75s step-end infinite;
+      border-right: 3px solid #ff1493;
     }
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink { 50% { border-color: transparent } }
@@ -143,7 +143,8 @@
   <div class="slide intro active">
     <img src="rain.gif" class="effect">
     <h1>🎶 Welcome 🎶</h1>
-    <p class="animated-quote">Play the song and then continue...</p>
+    <p class=".animated-quote"> 
+        <p>Play the song and then continue...</p>
     <audio id="birthdaySong" src="song.mp3" controls></audio>
     <br>
     <button onclick="nextSlide()">Continue ➡️</button>
@@ -247,3 +248,4 @@
       }, 500);
     }
   </script>
+</body>
