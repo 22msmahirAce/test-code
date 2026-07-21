@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Greeting Card</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Preload assets -->
+  <link rel="preload" href="petals.gif" as="image">
+  <link rel="preload" href="rain.gif" as="image">
+  <link rel="preload" href="balloons.gif" as="image">
+  <link rel="preload" href="cake.gif" as="image">
+  <link rel="preload" href="confetti.gif" as="image">
+  <link rel="preload" href="candles.gif" as="image">
+  <link rel="preload" href="flowers.png" as="image">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Dancing Script','Great Vibes',cursive;
+      text-align: center;
+      overflow: hidden;
+      /* Animated gradient background */
+      background: linear-gradient(-45deg, #ffb6c1, #ff69b4, #ffd700, #87ceeb);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    .slide {
+      display: none;
+      position: relative;
+      min-height: 100vh;
+      padding: 120px;
+      border: 100px solid transparent;
+      border-image: url('flowers.png') 100 round;
+      animation: framePulse 10s linear infinite;
+      transition: transform 1s ease-in-out, opacity 1s;
+      transform-origin: left center;
+      perspective: 1200px;
+    }
+    .active { display: block; transform: rotateY(0deg); opacity: 1; }
+
+    h1 { font-size: 5em; color: #ff1493; text-shadow: 2px 2px #fff; }
+    p { font-size: 2.5em; color: #4b0082; font-style: italic; }
+
+    img {
+      max-width: 70%;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+    button {
+      margin: 20px;
+      padding: 16px 32px;
+      font-size: 1.4em;
+      background: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    @keyframes framePulse {
+      0%   { border-image-slice: 100; }
+      50%  { border-image-slice: 120; }
+      100% { border-image-slice: 100; }
+    }
+    .slide.turning { transform: rotateY(-90deg); opacity: 0; }
+
+    .effect {
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      width:100%; height:100%;
+      object-fit: cover;
+      z-index:-1;
+      opacity:0.3;
+    }
+
+    /* Animated quote typing effect */
+    .animated-quote {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: typing 6s steps(40,end), blink .75s step-end infinite;
+      border-right: 3px solid #ff1493;
+    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
+
+    /* Heartbeat text */
+    .heartbeat {
+      font-size: 4em;
+      color: #ff1493;
+      animation: beat 1s infinite;
+    }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .ending-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 4em;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .navigation {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Particle container */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top:0; left:0;
+      z-index:-2;
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle background -->
+  <div id="particles-js"></div>
+
+  <!-- Intro Slide -->
+  <div class="slide intro active">
+    <img src="rain.gif" class="effect">
+    <h1>🎶 Welcome 🎶</h1>
+    <p class="animated-quote">Wishing you endless joy and love today!...Happy Birthday to the most amazing soul with selfless loving nature and care…</p>
+    <audio id="birthdaySong" src="song.mp3" controls></audio>
+    <br>
+    <button onclick="nextSlide()">Continue ➡️</button>
+    <!-- Interactive buttons -->
+    <button onclick="alert('🎈 Balloons popped!')">Pop a Balloon</button>
+    <button onclick="alert('🎂 Cake served!')">Cut the Cake</button>
+  </div>
+
+  <!-- Slide 1 -->
+  <div class="slide one">
+    <img src="snowfall.gif" class="effect">
+    <h1>🎉 Happy Birthday 🎉</h1>
+    <img src="1.jpg" alt="Birthday Person">
+    <p>Your existence is like a tree, due to which many branches of happiness exist…</p>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide two">
+    <img src="balloon.gif" class="effect">
+    <h1>🥳 Celebration Time 🥳</h1>
+    <img src="2.jpg" alt="Celebration">
+    <p>May your day be filled with laughter!</p>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide three">
+    <img src="cake.gif" class="effect">
+    <h1>🎂 Sweet Moments 🎂</h1>
+    <img src="3.jpg" alt="Cake">
+    <p>Enjoy every sweet moment!</p>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide four">
+    <img src="confetti.gif" class="effect">
+    <h1>👯 Friends 👯</h1>
+    <img src="4.jpg" alt="Friends">
+    <p>You surely deserve all the happiness in the world…</p>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide five">
+    <img src="candles.gif" class="effect">
+    <h1>🌟 Memories 🌟</h1>
+    <img src="5.jpg" alt="Memories">
+    <p>May this year bring unforgettable memories!....I wish! you look more Younger and your age goes backward...</p>
+  </div>
+
+  <!-- Ending Slide -->
+  <div class="slide ending">
+    <img src="confetti.gif" class="effect">
+    <div class="ending-text heartbeat">💖 Happy Birthday 💖</div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="navigation">
+    <button onclick="prevSlide()">⬅️ Previous</button>
+    <button onclick="nextSlide()">➡️ Next</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Particle effect config
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        move: { speed: 2 },
+        line_linked: { enable: false },
+        color: { value: "#ffffff" }
+      }
+    });
+
+    let current = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active','turning');
+        if(i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      slides[current].classList.add('turning');
+      setTimeout(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+      }, 500);
+    }
+
+    function prevSlide() {
+      slides[current].classList.add('turning');
+      setTimeout(() => {
+        current =
