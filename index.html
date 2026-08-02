@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', cursive;
-    color: #fff;
+    color: #1cff24;
     text-align: center;
     background-size: cover;
     background-position: center;
@@ -66,52 +66,63 @@
 <!-- Riddle 1 -->
 <div id="riddle1" class="box hidden">
   <h2>Riddle 1</h2>
-  <p>Kabhi aankhon mein bijli si chamak jaati hai... (Answer: GUSSA)</p>
+  <p>Mein vo shabd hu jise sabse jaada tumhare liye istemaal kia gya...</p>
+  <p>kehte mujhe iska dil nhi bharta....jitna bhi kahe ise kamm hi lgta...??</p>
   <input id="ans1"><br>
-  <button onclick="checkAnswer('ans1','GUSSA','clue1','riddle2')">Submit</button>
-  <p id="clue1" class="hidden">Clue: It’s about emotions...</p>
+  <button onclick="checkAnswer('ans1','THANKYOU','clue1','riddle2')">Submit</button>
+  <p id="clue1" class="hidden">Clue: TUMNE MUJHE CHUNA USKE LIYE ___. clue for the next riddle is in the background image..</p>
 </div>
 
 <!-- Riddle 2 -->
 <div id="riddle2" class="box hidden">
   <h2>Riddle 2</h2>
-  <p>Tere chehre ki roshni hai sabse khoobsurat... (Answer: CHARM)</p>
+  <p>tumhe dekhte tumhare shaks ke chehre p sabse pehle mein aata hu...</p>
+  <p>tumhari pyaari harkato s mein aur khil jaata hu...huu mein tumhare chehre pr bhi...</p>
+  <p>jb mein kahi khoo jata hu to tumhare Daas ki vjh s zabardasti laaya jaata hu...soocho mein hu kon..</p>
   <input id="ans2"><br>
-  <button onclick="checkAnswer('ans2','CHARM','clue2','riddle3')">Submit</button>
-  <p id="clue2" class="hidden">Clue: It’s your smile...</p>
+  <button onclick="checkAnswer('ans2','SMILE','clue2','riddle3')">Submit</button>
+  <p id="clue2" class="hidden">Clue: TUM MUSKAAN KO JANTI HO ??.clue for the next riddle is in the background image.. </p>
 </div>
 
 <!-- Riddle 3 -->
 <div id="riddle3" class="box hidden">
   <h2>Riddle 3</h2>
-  <p>Dosti ka asli matlab kya hai? (Answer: FRIEND)</p>
+  <p>Tere chehre p rehta mein hrr waqt hu....teere is noor ki vjh s sharmaaya hua chand hai....</p>
+<p>keha yee apka daas aur keha aap ka ye chehra...the whole sunshine at one side and this charm at one side...btaao mein kya ??</p>
   <input id="ans3"><br>
-  <button onclick="checkAnswer('ans3','FRIEND','clue3','riddle4')">Submit</button>
-  <p id="clue3" class="hidden">Clue: The bond we share...</p>
+  <button onclick="checkAnswer('ans3','CHARM','clue3','riddle4')">Submit</button>
+  <p id="clue3" class="hidden">Clue: answer in the background image.</p>
 </div>
 
 <!-- Riddle 4 -->
 <div id="riddle4" class="box hidden">
-  <h2>Riddle 4</h2>
-  <p>Sabse mazboot aur sundar ehsaas ka naam? (Answer: LOVE)</p>
+  <h2>Final riddle to hunt your surprise:</h2>
+  <p>yee badi khatarnaak cheez hai...drta tumhara shaks isse hai bohot....</p>
+  <P>kabhi baato m dehshat si...kabhi tumhare chup rehna soch m dhakeel deta h...</P>
+  <P>lgta kabhi jeese koi choti bachi ho tum...yee pyaar ka bilkul ulta hai...</P>
+  <P>perr pyaar isme bhi dikhta hai....btaao mein hu kon??</P>
   <input id="ans4"><br>
-  <button onclick="checkAnswer('ans4','LOVE','clue4','final')">Submit</button>
-  <p id="clue4" class="hidden">Clue: The strongest feeling...</p>
+  <button onclick="checkAnswer('ans4','GUSSA','clue4','final')">Submit</button>
+  <p id="clue4" class="hidden">Clue: what is your habit that i love the most? </p>
 </div>
 
 <!-- Final Treasure Page -->
 <div id="final" class="box hidden">
   <h2>Final Question</h2>
-  <p>What is the ultimate gift hidden in this hunt? (Answer: TREASURE)</p>
+  <p>What is the name my most precious thing in the whole world</p>
   <img src="key.png" style="width:200px;"><br>
   <input id="ansFinal"><br>
   <button onclick="unlockTreasure()">Submit</button>
   <div id="treasure" class="hidden">
-    <img src="treasurebox.png" style="width:200px; cursor:pointer;" onclick="openPage()">
-    <img src="foldedpage.png" id="page" style="width:200px; display:none;">
+    <img src="box.png" style="width:200px; cursor:pointer;" onclick="openPage()">
+    <img src="page.png" id="page" style="width:200px; display:none;">
     <div id="message">
       <h2 style="color:gold; font-family:cursive;">💖 Surprise Message 💖</h2>
-      <p style="color:pink; font-size:20px;">You are my treasure, my best friend forever 🌸✨</p>
+      <p style="color:pink; font-size:20px;">my dearest friend 🌸SUHANI✨, tum meri life ki abb tkki sabse achi dost ho..</p>
+      <P>tumse acha, tumse pyaara, tumse jaada dil ka saaf, tumse jaada better, tumse uper, tumse jaada sacha, tumse jaada best..</P>
+      <P>friend mujhe tumse pehle koi nhi mila...naa kabhi milega...</P>
+      <P>tum meri best friend rhogi humesha...tumhari marzi se jb chahe mujhe bestie bnaa lena...tumhare liye sab kuch banne tyar hu..</P>
+      <P>happy friendship day to my dearest friend</P>
     </div>
   </div>
 </div>
@@ -123,8 +134,7 @@ const backgrounds = {
   riddle1: 'TK.png',
   riddle2: 'smile.png',
   riddle3: 'noor.png',
-  riddle4: 'riddle4-bg.jpg',
-  final: 'final-bg.jpg'
+  riddle4: 'anger.png',
 };
 
 function showPage(nextId){
@@ -157,7 +167,7 @@ function checkAnswer(inputId, correct, clueId, nextPage){
 
 function unlockTreasure(){
   let val = document.getElementById("ansFinal").value.trim().toUpperCase();
-  if(val === "TREASURE"){ // replace with your final answer
+  if(val === "YOU"){ // replace with your final answer
     document.getElementById("treasure").classList.remove("hidden");
   } else {
     alert("Try again!");
