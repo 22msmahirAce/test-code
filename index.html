@@ -109,13 +109,14 @@
 <!-- Final Treasure Page -->
 <div id="final" class="box hidden">
   <h2>Final Question</h2>
-  <p>What is the name my most precious thing in the whole world</p>
-  <img src="key.png" style="width:200px;"><br>
+  <p>What is the name my most precious thing in the whole world (NAME THE KEY)</p>
+  <P>open the treasure box</P>
+  <img src="key.png" style="width:200px;"> "<br>
   <input id="ansFinal"><br>
   <button onclick="unlockTreasure()">Submit</button>
   <div id="treasure" class="hidden">
-    <img src="box.png" style="width:200px; cursor:pointer;" onclick="openPage()">
-    <img src="page.png" id="page" style="width:200px; display:none;">
+    <img src="" style="width:200px; cursor:pointer;" onclick="openPage()">
+    <img src="page.png" id="page" position="center" style="width:200px; display:none;">
     <div id="message">
       <h2 style="color:gold; font-family:cursive;">💖 Surprise Message 💖</h2>
       <p style="color:pink; font-size:20px;">my dearest friend 🌸SUHANI✨, tum meri life ki abb tkki sabse achi dost ho..</p>
@@ -135,6 +136,7 @@ const backgrounds = {
   riddle2: 'smile.png',
   riddle3: 'noor.png',
   riddle4: 'anger.png',
+  final: 'box.png',
 };
 
 function showPage(nextId){
