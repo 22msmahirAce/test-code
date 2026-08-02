@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Friendship Day Treasure Hunt</title>
+<title>Friendship Treasure Hunt</title>
 <style>
   html, body {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    font-family: 'Segoe UI', cursive;
-    color: #0412ac;
-    text-align: center;
     padding: 0;
+    font-family: 'Segoe UI', cursive;
+    color: #fff;
+    text-align: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,8 +21,8 @@
     padding: 20px;
     margin: auto;
     max-width: 80%;
-    font-weight: bolder;
-    text-shadow: 2px 2px 4px #000;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000; /* readable text without overlay */
   }
   input, button {
     padding: 10px;
@@ -34,10 +34,11 @@
     background: #ff6f61;
     color: white;
     cursor: pointer;
-    font-weight: bolder;
+    font-weight: bold;
   }
   button:hover { background: #e85c50; }
 
+  /* Fade-in animation for final message */
   #message {
     opacity: 0;
     transition: opacity 3s ease-in;
@@ -51,59 +52,57 @@
 
 <!-- Intro Page -->
 <div id="intro" class="box">
-  <h1 class="typing">🌸 Happy Friendship Day 🌸</h1>
+  <h1>🌸 Happy Friendship Day 🌸</h1>
   <h2>To my Dearest & Bestest Friend</h2>
   <p>You are appreciated, loved and to be Thanked life time... 💖</p>
   <p>This is a treasure hunt game created by the one jiski aap best friend ho...<br>
      Isme aapko riddle padhna h dhyaan se aur answer type krna h.<br>
      Fir neeche ek clue milega aur uske baad agli riddle pe jaana h.<br>
-     Riddle k answers saare SMALL LETTERS mein hi hain!</p>
+     Riddle k answers saare CAPITAL LETTERS mein hi hain!</p>
   <button onclick="playMusic()">🎵 Play Music</button>
   <button onclick="showPage('riddle1')">Enter ➡️</button>
 </div>
 
-<!-- Riddle Pages -->
+<!-- Riddle 1 -->
 <div id="riddle1" class="box hidden">
   <h2>Riddle 1</h2>
-  <p>Mein vo shabd hu jise sabse jaada tumhare liye istemaal kia gya...</p>
-  <p>kehte mujhe iska dil nhi bharta....jitna bhi kahe ise kamm hi lgta...??</p>
+  <p>Kabhi aankhon mein bijli si chamak jaati hai... (Answer: GUSSA)</p>
   <input id="ans1"><br>
-  <button onclick="checkAnswer('ans1','thankyou','clue1','riddle2')">Submit</button>
-  <p id="clue1" class="hidden">Clue: mujhe apne dil ka khyaal rakhne deene k liye ___.
-    The clue for the next Riddle is in the background photo</p>
+  <button onclick="checkAnswer('ans1','GUSSA','clue1','riddle2')">Submit</button>
+  <p id="clue1" class="hidden">Clue: It’s about emotions...</p>
 </div>
 
+<!-- Riddle 2 -->
 <div id="riddle2" class="box hidden">
   <h2>Riddle 2</h2>
-  <p>tumhe dekhte tumhare shaks ke chehre p sabse pehle mein aata hu...</p>
-  <p>tumhari pyaari harkato s mein aur khil jaata hu...</p> 
-  <p>huu mein tumhare chehre pr bhi...kabhi jb mein kahi khoo jata hu to tumhare Daas ki vjh s zabardasti laaya jaata hu...</p>
-  <p>socho mein hu kon..</p>
+  <p>Tere chehre ki roshni hai sabse khoobsurat... (Answer: CHARM)</p>
   <input id="ans2"><br>
-  <button onclick="checkAnswer('ans2','smile','clue2','riddle3')">Submit</button>
-  <p id="clue2" class="hidden">Clue:The clue for the next Riddle is in the background photo</p>
+  <button onclick="checkAnswer('ans2','CHARM','clue2','riddle3')">Submit</button>
+  <p id="clue2" class="hidden">Clue: It’s your smile...</p>
 </div>
 
+<!-- Riddle 3 -->
 <div id="riddle3" class="box hidden">
   <h2>Riddle 3</h2>
-  <p>(You)</p>
+  <p>Dosti ka asli matlab kya hai? (Answer: FRIEND)</p>
   <input id="ans3"><br>
-  <button onclick="checkAnswer('ans3','ANSWER3','clue3','riddle4')">Submit</button>
-  <p id="clue3" class="hidden">Clue: (your clue text here)</p>
+  <button onclick="checkAnswer('ans3','FRIEND','clue3','riddle4')">Submit</button>
+  <p id="clue3" class="hidden">Clue: The bond we share...</p>
 </div>
 
+<!-- Riddle 4 -->
 <div id="riddle4" class="box hidden">
   <h2>Riddle 4</h2>
-  <p>(Your fourth riddle here)</p>
+  <p>Sabse mazboot aur sundar ehsaas ka naam? (Answer: LOVE)</p>
   <input id="ans4"><br>
-  <button onclick="checkAnswer('ans4','ANSWER4','clue4','final')">Submit</button>
-  <p id="clue4" class="hidden">Clue: (your clue text here)</p>
+  <button onclick="checkAnswer('ans4','LOVE','clue4','final')">Submit</button>
+  <p id="clue4" class="hidden">Clue: The strongest feeling...</p>
 </div>
 
-<!-- Final Page -->
+<!-- Final Treasure Page -->
 <div id="final" class="box hidden">
   <h2>Final Question</h2>
-  <p>(Your last question here)</p>
+  <p>What is the ultimate gift hidden in this hunt? (Answer: TREASURE)</p>
   <img src="key.png" style="width:200px;"><br>
   <input id="ansFinal"><br>
   <button onclick="unlockTreasure()">Submit</button>
@@ -119,10 +118,8 @@
 
 <script>
 let wrongCount = {};
-
-// Backgrounds for each page
 const backgrounds = {
-  intro: 'intro.png',
+  intro: 'poster.png',
   riddle1: 'TK.png',
   riddle2: 'smile.png',
   riddle3: 'noor.png',
@@ -137,7 +134,8 @@ function showPage(nextId){
 }
 
 function playMusic(){
-  let audio = new Audio('music.mp3'); // add your music file
+  let audio = new Audio('music.mp3'); // place your music file in repo root
+  audio.loop = true;
   audio.play();
 }
 
@@ -145,7 +143,7 @@ function checkAnswer(inputId, correct, clueId, nextPage){
   let val = document.getElementById(inputId).value.trim().toUpperCase();
   if(val === correct){
     document.getElementById(clueId).classList.remove('hidden');
-    setTimeout(()=>showPage(nextPage),5000);
+    setTimeout(()=>showPage(nextPage),2000);
   } else {
     wrongCount[inputId] = (wrongCount[inputId]||0)+1;
     if(wrongCount[inputId]===1){
@@ -168,7 +166,7 @@ function unlockTreasure(){
 
 function openPage(){
   document.getElementById("page").style.display="block";
-  setTimeout(()=>document.getElementById("message").classList.add("show"),5000);
+  setTimeout(()=>document.getElementById("message").classList.add("show"),2000);
 }
 </script>
 </body>
