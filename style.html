@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Friendship Treasure Hunt</title>
+<style>
+  html, body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', cursive;
+    color: #fff;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .hidden { display: none; }
+  .box {
+    padding: 20px;
+    margin: auto;
+    max-width: 80%;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000; /* readable text without black overlay */
+  }
+  input, button {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+  }
+  button {
+    background: #ff6f61;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover { background: #e85c50; }
+</style>
+</head>
+<body>
+
+<!-- Intro Page -->
+<div id="intro" class="box">
+  <h1>🌸 Happy Friendship Day 🌸</h1>
+  <h2>To my Dearest & Bestest Friend</h2>
+  <p>You are appreciated, loved and to be Thanked life time... 💖</p>
+  <p>This is a treasure hunt game... Answers must be in CAPITAL LETTERS!</p>
+  <button onclick="showPage('riddle1')">Enter ➡️</button>
+</div>
+
+<!-- Riddle 1 -->
+<div id="riddle1" class="box hidden">
+  <h2>Riddle 1</h2>
+  <p>Kabhi aankhon mein bijli si chamak jaati hai... (Answer: GUSSA)</p>
+  <input id="ans1"><br>
+  <button onclick="checkAnswer('ans1','GUSSA','clue1','riddle2')">Submit</button>
+  <p id="clue1" class="hidden">Clue: Think of emotions...</p>
+</div>
+
+<!-- Riddle 2 -->
+<div id="riddle2" class="box hidden">
+  <h2>Riddle 2</h2>
+  <p>Tere chehre ki roshni hai sabse khoobsurat... (Answer: CHARM)</p>
+  <input id="ans2"><br>
+  <button onclick="checkAnswer('ans2','CHARM','clue2','intro')">Submit</button>
+  <p id="clue2" class="hidden">Clue: It’s your smile...</p>
+</div>
+
+<script>
+let wrongCount = {};
+const backgrounds = {
+  intro: 'intro.png',
+  riddle1: 'TK.png',
+  riddle2: 'smile.png'
+};
+
+function showPage(nextId){
+  document.querySelectorAll('.box').forEach(b=>b.classList.add('hidden'));
+  document.getElementById(nextId).classList.remove('hidden');
+  document.body.style.backgroundImage = `url('${backgrounds[nextId]}')`;
+}
+
+function checkAnswer(inputId, correct, clueId, nextPage){
+  let val = document.getElementById(inputId).value.trim().toUpperCase();
+  if(val === correct){
+    document.getElementById(clueId).classList.remove('hidden');
+    setTimeout(()=>showPage(nextPage),2000);
+  } else {
+    wrongCount[inputId] = (wrongCount[inputId]||0)+1;
+    if(wrongCount[inputId]===1){
+      alert("Wrong answer, try again!");
+    } else if(wrongCount[inputId]===2){
+      document.getElementById(clueId).classList.remove('hidden');
+      // stay until correct answer
+    }
+  }
+}
+</script>
+</body>
+</html>
